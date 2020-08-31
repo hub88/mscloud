@@ -1,5 +1,0 @@
-com\minglead\monitor\controller\PaymentController.class
-com\minglead\monitor\dao\PaymentDao.class
-com\minglead\monitor\service\impl\PaymentServiceImpl.class
-com\minglead\monitor\Payment8002.class
-com\minglead\monitor\service\PaymentService.class
