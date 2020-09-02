@@ -19,6 +19,9 @@
     <module>cloud-consumer-feign-hystrix-order80</module>
       <module>cloud-consumer-hystrix-dashboard9001</module>
       <module>cloud-gateway-gateway9527</module>
+    <module>cloud-config-center-3344</module>
+    <module>cloud-config-client-3355</module>
+    <module>cloud-config-client-3366</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -28,7 +31,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <junit.version>4.12</junit.version>
-    <log4j.version>1.2.17</log4j.version>
+    <log4j.version>2.13.3</log4j.version>
     <lombok.version>1.16.18</lombok.version>
     <mysql.version>5.1.47</mysql.version>
     <druid.version>1.1.16</druid.version>
@@ -83,9 +86,10 @@
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/log4j/log4j -->
       <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
         <version>${log4j.version}</version>
       </dependency>
       <dependency>
