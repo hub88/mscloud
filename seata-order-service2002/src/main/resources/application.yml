@@ -1,0 +1,62 @@
+server:
+  port: 2002
+
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+    nacos:
+      discovery:
+        server-addr: 192.168.162.2:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver   #mysql驱动包
+    url: jdbc:mysql://localhost:3306/seata_storage?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: 123456
+  #  datasource:
+  #    driver-class-name: com.mysql.jdbc.Driver
+  #    url: jdbc:mysql://localhost:3306/seata_account
+  #    username: root
+  #    password: 123456
+
+feign:
+  hystrix:
+    enabled: false
+
+logging:
+  level:
+    io:
+      seata: info
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
+#这种是采用yml配置Seata的注册中心和配置中心的方式，我们采用特定文件方式
+#seata:
+#  enabled: true
+#  application-id: order   # 应用 id 为唯一便于区分
+#  tx-service-group: my_test_tx_group # 事务分组，这个是默认分组，配置文件中修改
+#  config:
+#    type: nacos
+#    nacos:
+#      namespace:
+#      serverAddr: 127.0.0.1:8848
+#      group: SEATA_GROUP
+#      userName: "nacos"
+#      password: "nacos"
+#  registry:
+#    type: nacos
+#    nacos:
+#      application: seata-server
+#      server-addr: 127.0.0.1:8848
+#      namespace:
+#      userName: "nacos"
+#      password: "nacos"
+#
+#
+#  enable-auto-data-source-proxy: false
+#这边自动代理关掉是因为，, seata源码中SeataDataSourceBeanPostProcessor的初始化要比我的datasource初始话晚，导致datasoure不会被包装为代理类，此处我自己代码做了处理
